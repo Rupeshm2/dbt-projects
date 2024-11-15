@@ -1,0 +1,27 @@
+version: 2
+sources:
+  - name: raw_data
+    database: dev
+    schema: raw_data
+    description: "Schema which stores raw tables (ETL)"
+    tables:
+      - name: stock_price
+        identifier: stock_price
+        description: "Stock price data has columns symbol, price_date, close"
+  - name: analytics
+    database: dev
+    schema: analytics
+    description: "Schema which stores analytics tables (ELT)"
+    tables:
+      - name: moving_average
+        identifier: moving_average
+        description: "Calculates SMA and EMA for stocks"      
+      - name: rsi
+        identifier: rsi
+        description: "Calculates RSI for stocks"
+      - name: price_momentum
+        identifier: price_momentum
+        description: "Calculates Price Momentum"
+      - name: bollinger_bands
+        identifier: bollinger_bands
+        description: "Calculates Bollinger Bands"

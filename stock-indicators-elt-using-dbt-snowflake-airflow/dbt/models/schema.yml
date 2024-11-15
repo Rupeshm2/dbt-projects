@@ -1,0 +1,77 @@
+version: 2
+models:
+  - name: moving_averages
+    description: "Stock Simple Moving Average and Exponential Moving Average"
+    columns:
+      - name: symbol
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+        
+      - name: price_date 
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns: 
+          combination_of_columns:
+            - symbol
+            - price_date
+
+  - name: rsi
+    description: "RSI tables tests"
+    columns:
+      - name: symbol
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+        
+      - name: price_date 
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - symbol
+            - price_date
+
+  - name: price_momentum
+    description: "Price Momentum data for stocks"
+    columns:
+      - name: symbol
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+        
+      - name: price_date 
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - symbol
+            - price_date
+
+  - name: bollinger_bands
+    description: "Analytics model for session data"
+    columns:
+      - name: symbol
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+        
+      - name: price_date 
+        description: "Primary key is composite key"
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - symbol
+            - price_date
